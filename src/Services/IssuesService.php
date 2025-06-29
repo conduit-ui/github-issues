@@ -5,17 +5,12 @@ declare(strict_types=1);
 namespace ConduitUI\GithubIssues\Services;
 
 use ConduitUI\GithubConnector\GithubConnector;
-use ConduitUI\GithubIssues\Contracts\ManagesIssueAssigneesInterface;
-use ConduitUI\GithubIssues\Contracts\ManagesIssueLabelsInterface;
-use ConduitUI\GithubIssues\Contracts\ManagesIssuesInterface;
+use ConduitUI\GithubIssues\Contracts\IssuesServiceInterface;
 use ConduitUI\GithubIssues\Traits\ManagesIssueAssignees;
 use ConduitUI\GithubIssues\Traits\ManagesIssueLabels;
 use ConduitUI\GithubIssues\Traits\ManagesIssues;
 
-class IssuesService implements 
-    ManagesIssuesInterface, 
-    ManagesIssueAssigneesInterface, 
-    ManagesIssueLabelsInterface
+class IssuesService implements IssuesServiceInterface
 {
     use ManagesIssues;
     use ManagesIssueAssignees;
