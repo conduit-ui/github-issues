@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(./vendor/bin/pest)",
-      "Bash(composer analyse:*)"
-    ],
-    "deny": []
-  }
-}
