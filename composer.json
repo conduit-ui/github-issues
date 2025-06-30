@@ -20,7 +20,7 @@
     ],
     "require": {
         "php": "^8.2|^8.3|^8.4",
-        "conduit-ui/github-connector": "^1.0",
+        "conduit-ui/github-connector": "dev-master",
         "illuminate/contracts": "^10.0||^11.0||^12.0",
         "saloonphp/saloon": "^3.10",
         "spatie/laravel-package-tools": "^1.16|^2.0"
@@ -28,6 +28,7 @@
     "require-dev": {
         "laravel/pint": "^1.14",
         "larastan/larastan": "^2.0",
+        "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^7.0||^8.0",
         "orchestra/testbench": "^8.0||^9.0||^10.0||^11.0",
         "pestphp/pest": "^2.34||^3.0",

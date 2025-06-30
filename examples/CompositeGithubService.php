@@ -16,14 +16,11 @@ use ConduitUI\GithubIssues\Traits\ManagesIssues;
  * Example composite service that combines issue management with other GitHub functionality
  * Your service could also include traits for repositories, pull requests, etc.
  */
-class CompositeGithubService implements 
-    ManagesIssuesInterface,
-    ManagesIssueAssigneesInterface,
-    ManagesIssueLabelsInterface
+class CompositeGithubService implements ManagesIssueAssigneesInterface, ManagesIssueLabelsInterface, ManagesIssuesInterface
 {
-    use ManagesIssues;
     use ManagesIssueAssignees;
     use ManagesIssueLabels;
+    use ManagesIssues;
     // use ManagesRepositories; // From another package
     // use ManagesPullRequests; // From another package
     // use ManagesProjects; // From another package
@@ -38,7 +35,7 @@ class CompositeGithubService implements
     public function triageIssue(string $owner, string $repo, int $issueNumber, array $config): void
     {
         $issue = $this->getIssue($owner, $repo, $issueNumber);
-        
+
         // Auto-assign based on labels
         if ($config['auto_assign'] ?? false) {
             foreach ($issue->labels as $label) {
@@ -53,7 +50,7 @@ class CompositeGithubService implements
         if ($config['auto_priority'] ?? false) {
             $title = strtolower($issue->title);
             $body = strtolower($issue->body ?? '');
-            
+
             if (str_contains($title, 'urgent') || str_contains($body, 'urgent')) {
                 $this->addLabel($owner, $repo, $issueNumber, 'priority:high');
             } elseif (str_contains($title, 'bug') || str_contains($body, 'bug')) {

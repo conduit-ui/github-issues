@@ -12,9 +12,9 @@ use ConduitUI\GithubIssues\Traits\ManagesIssues;
 
 class IssuesService implements IssuesServiceInterface
 {
-    use ManagesIssues;
     use ManagesIssueAssignees;
     use ManagesIssueLabels;
+    use ManagesIssues;
 
     public function __construct(
         private readonly GithubConnector $connector

@@ -9,6 +9,9 @@ use Illuminate\Support\Collection;
 
 trait ManagesIssues
 {
+    /**
+     * @return \Illuminate\Support\Collection<int, \ConduitUI\GithubIssues\Data\Issue>
+     */
     public function listIssues(string $owner, string $repo, array $filters = []): Collection
     {
         $response = $this->connector->send(
